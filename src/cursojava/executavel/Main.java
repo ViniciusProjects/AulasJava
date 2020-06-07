@@ -43,7 +43,9 @@ public class Main {
 		System.out.println("CPF: " + aluno1.getNumeroCpf());
 		System.out.println("Média da nota: " + aluno1.getMediaNota());
 		System.out.println("Disciplinas listadas: " + aluno1.getDisciplinas().size());
+		System.out.println("Nome das disciplinas listadas: " + aluno1.getDisciplinas());
 		System.out.println("Resultado: " + (aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
+		System.out.println("Resultado final: " + aluno1.getAlunoAprovado2());
 
 		Aluno a2 = new Aluno();
 		String cpfAluno2 = JOptionPane.showInputDialog("Digite seu cpf");
