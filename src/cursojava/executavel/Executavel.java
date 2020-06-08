@@ -14,7 +14,7 @@ public class Executavel {
 
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		for (int qtd = 1; qtd <= 1; qtd++) {
+		for (int qtd = 1; qtd <= 2; qtd++) {
 
 			String nome = JOptionPane.showInputDialog("Nome do aluno " + qtd + " ?");
 			String idade = JOptionPane.showInputDialog("idade do aluno");
@@ -53,6 +53,20 @@ public class Executavel {
 		}
 		for (int i = 0; i < alunos.size(); i++) {
 			Aluno aluno = alunos.get(i);
+			
+			if (aluno.getNome().equalsIgnoreCase("Vinicius")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Matematica");
+				disciplina.setNota(9.6);
+				
+				trocar.getDisciplinas().add(disciplina);
+				alunos.set(i, trocar);
+				aluno = alunos.get(i); //recuperando o objeto trocado na lista e passando para aluno
+			}
+			
 			System.out.println("Aluno = " + aluno);
 			System.out.println("Média do aluno = " + aluno.getMediaNota());
 			System.out.println("Resultado:" + aluno.getAlunoAprovado2());
