@@ -52,7 +52,11 @@ public class Main {
 			alunos.add(aluno1);
 		}
 		for (Aluno aluno : alunos) {
+			
 			if (aluno.getNome().equalsIgnoreCase("Vinicius")) { //procurando aluno e calculando média
+				alunos.remove(aluno);
+				break;
+			} else {
 				System.out.println(aluno);
 				System.out.println("Nome: " + aluno.getNome());
 				System.out.println("Idade: " + aluno.getIdade());
@@ -63,7 +67,15 @@ public class Main {
 				//System.out.println("Resultado: " + (aluno.getAlunoAprovado() ? "Aprovado" : "Reprovado"));
 				System.out.println("Resultado final: " + aluno.getAlunoAprovado2());
 				System.out.println("----------------------------------------------------------------------------");
-				break;
+				
+			}
+		} for (Aluno aluno : alunos) {
+			System.out.println("Alunos listados:");
+			System.out.println(aluno.getNome());
+			System.out.println("Suas matérias são:");
+			for (Disciplina disciplina : aluno.getDisciplinas()) {
+				System.out.println(disciplina.getDisciplina());
+				
 			}
 		}
 
