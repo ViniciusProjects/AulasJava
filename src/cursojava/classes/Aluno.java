@@ -3,6 +3,8 @@ package cursojava.classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import cursojava.constantes.StatusAluno;
+
 public class Aluno {
 
 	private String nome;
@@ -122,25 +124,18 @@ public class Aluno {
 		return somaNota / disciplinas.size();
 	}
 
-	public boolean getAlunoAprovado() {
-		double media = this.getMediaNota();
-		if (media >= 7) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	
 
-	public String getAlunoAprovado2() {
+	public String getAlunoResultado() {
 		double media = this.getMediaNota();
 		if (media >= 5) {
 			if (media >= 7) {
-				return "Aluno está aprovado";
+				return StatusAluno.APROVADO;
 			}else {
-				return "Aluno está de recuperação";
+				return StatusAluno.RECUPERACAO;
 			}
 		} else {
-			return "Aluno não está aprovado";
+			return StatusAluno.REPROVADO;
 
 		}
 
