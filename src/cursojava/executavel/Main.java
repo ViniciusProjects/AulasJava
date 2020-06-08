@@ -31,9 +31,16 @@ public class Main {
 		}
 
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina? ");
-		if (escolha == 0) {
-			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3, 4 ? ");
-			aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
+		if (escolha == 0) { // opção sim é zero
+			int continuarRemover = 0;
+			int posicao = 1;
+			while (continuarRemover == 0) {
+				String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina 1, 2, 3, 4 ? ");
+				aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - posicao);
+				posicao++;
+				continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
+
+			}
 
 		}
 
@@ -51,7 +58,7 @@ public class Main {
 		String cpfAluno2 = JOptionPane.showInputDialog("Digite seu cpf");
 		a2.setNumeroCpf(cpfAluno2);
 
-		if (aluno1.equals(a2)) {
+		if (aluno1.equals(a2)) { // verificando se o cpf setado é de um outro aluno
 			System.out.println("CPF pertence a outro aluno");
 
 		}
