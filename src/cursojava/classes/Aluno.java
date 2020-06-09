@@ -20,10 +20,6 @@ public class Aluno {
 
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
-	
-	
-
-	
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
