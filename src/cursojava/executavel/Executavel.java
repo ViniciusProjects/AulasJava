@@ -13,7 +13,13 @@ import cursojava.constantes.StatusAluno;
 public class Executavel {
 
 	public static void main(String[] args) {
-		try {
+		
+		String login = JOptionPane.showInputDialog("Informe o login:");
+		String senha = JOptionPane.showInputDialog("Informe a senha:");
+
+		if (login.equalsIgnoreCase("Admin") && senha.equalsIgnoreCase("123")) {
+
+		
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
@@ -73,26 +79,21 @@ public class Executavel {
 			}
 			System.out.println("-------Lista aprovados-------");
 			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
-				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " + aluno.getAlunoResultado()
-						+ "com médias de = " + aluno.getMediaNota());
+				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " + " " +aluno.getAlunoResultado()
+						+ " com médias de = " + aluno.getMediaNota());
 			}
 			System.out.println("-------Lista Recuperação-------");
 			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
-				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " + aluno.getAlunoResultado()
+				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " +" " + aluno.getAlunoResultado()
 						+ "com médias de = " + aluno.getMediaNota());
 			}
 			System.out.println("-------Lista Reprovados-------");
 			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
-				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " + aluno.getAlunoResultado()
-						+ "com médias de = " + aluno.getMediaNota());
-
+				System.out.println("Aluno: " + aluno.getNome() + " Resultado= " +" " + aluno.getAlunoResultado()
+						+ " com médias de = " + aluno.getMediaNota());
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Erro");
-
 		}
-	}
 
+	}
 }
