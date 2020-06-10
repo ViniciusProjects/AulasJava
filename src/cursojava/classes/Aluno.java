@@ -1,11 +1,12 @@
 package cursojava.classes;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cursojava.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
 	private String nome;
 	private int idade;
@@ -19,7 +20,7 @@ public class Aluno {
 	private String serieMatriculado;
 
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-	
+
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
@@ -29,7 +30,6 @@ public class Aluno {
 	}
 
 	public Aluno() {
-
 	}
 
 	public String getNome() {
@@ -112,22 +112,20 @@ public class Aluno {
 		this.serieMatriculado = serieMatriculado;
 	}
 
-	public double getMediaNota() { //maneira um pouco mais dinamica de media de notas
+	public double getMediaNota() { // maneira um pouco mais dinamica de media de notas
 		double somaNota = 0.0;
-		for (Disciplina disciplina : disciplinas) { 
-			somaNota += disciplina.getNota();	
+		for (Disciplina disciplina : disciplinas) {
+			somaNota += disciplina.getNota();
 		}
 		return somaNota / disciplinas.size();
 	}
-
-	
 
 	public String getAlunoResultado() {
 		double media = this.getMediaNota();
 		if (media >= 5) {
 			if (media >= 7) {
 				return StatusAluno.APROVADO;
-			}else {
+			} else {
 				return StatusAluno.RECUPERACAO;
 			}
 		} else {
@@ -164,12 +162,19 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", numeroCpf=" + numeroCpf  
-				+ "]";
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", numeroCpf=" + numeroCpf + "]";
 	}
 
-	
-	
-	
+	@Override
+	public boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return super.pessoaMaiorIdade();
+	}
+
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
