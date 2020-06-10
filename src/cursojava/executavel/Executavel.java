@@ -7,10 +7,13 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Pessoa;
 import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.interfaces.PermitirAcesso;
 
 public class Executavel {
 
@@ -18,14 +21,8 @@ public class Executavel {
 
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
-		
-		Secretario secretario = new Secretario();
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
-		
 
-		if (secretario.autenticar()) {
-
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
@@ -99,12 +96,9 @@ public class Executavel {
 						+ " com médias de = " + aluno.getMediaNota());
 			}
 
-		}
-		else {
+		} else {
 			JOptionPane.showMessageDialog(null, "Acesso negado");
 		}
 	}
-		
-	
 
 }
