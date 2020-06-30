@@ -22,12 +22,18 @@ public class Product {
 
 	public void addProducts(int quantity) {
 		this.quantity += quantity;
-		
+
 	}
 
 	public void removeProducts(int quantity) {
 		this.quantity -= quantity;
 
+	}
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + ", quantity=" + quantity + ", totalValueInStoc)="
+				+ totalValueInStock() + "]";
 	}
 
 }
