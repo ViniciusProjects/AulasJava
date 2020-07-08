@@ -115,7 +115,7 @@ public class Aluno extends Pessoa {
 	public double getMediaNota() { // maneira um pouco mais dinamica de media de notas
 		double somaNota = 0.0;
 		for (Disciplina disciplina : disciplinas) {
-			somaNota += disciplina.getNota();
+			somaNota += disciplina.getMediaNotas();
 		}
 		return somaNota / disciplinas.size();
 	}
