@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import br.com.udemy.cursojava.entity.Calculator;
 
-public class Radius { // 1 versão
+public class Radius { //2° versão
 
 	public static void main(String[] args) {
 
