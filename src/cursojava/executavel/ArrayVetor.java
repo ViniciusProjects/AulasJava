@@ -1,11 +1,14 @@
 package cursojava.executavel;
 
+import java.util.Scanner;
+
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 
 public class ArrayVetor {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 
 		Aluno aluno = new Aluno();
 		aluno.setNome("Vinicius");
@@ -25,28 +28,23 @@ public class ArrayVetor {
 
 		aluno.getDisciplinas().add(disciplina2);
 
-		System.out.println("Nome do aluno: " + aluno.getNome());
-		System.out.println();
-		System.out.println("-----------Disciplinas do aluno--------");
+		// ------------------------------------------------------------------------------------
 
-		for (Disciplina disc : aluno.getDisciplinas()) {
-			System.out.println();
-			System.out.println("Disciplina: " + disc.getDisciplina());
-			System.out.println();
-			double maiorNota = 0.0;
-			for (int i = 0; i < disc.getNota().length; i++) {
-				System.out.println("Nota " + i + " é igual = " + disc.getNota()[i]);
-				if (i == 0) {
-					maiorNota = disc.getNota()[i];
-					
-				} else {
-					if (disc.getNota()[i] > maiorNota) {
-						maiorNota = disc.getNota()[i];
-					}
+		Aluno[] arrayAlunos = new Aluno[1];
+
+		arrayAlunos[0] = aluno;
+		for (int i = 0; i < arrayAlunos.length; i++) {
+
+			System.out.println("Nome do aluno: " + arrayAlunos[i].getNome());
+
+			for (Disciplina d : arrayAlunos[i].getDisciplinas()) {
+				System.out.println("Nome da disciplina:" + d.getDisciplina());
+
+				for (int notas = 0; notas < d.getNota().length; notas++) {
+					System.out.println("Notas:" + d.getNota()[notas]);
 				}
 			}
-			System.out.println("A maior nota da disciplina de: " + disc.getDisciplina() + " foi de: " + maiorNota);;
 		}
-		
+		sc.close();
 	}
 }
